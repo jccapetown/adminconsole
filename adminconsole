@@ -3,7 +3,9 @@
 #Main app for the adminconsole
 import os
 
-from includes import framework, linuxnetworkcommands, linuxsysteminfo, linuxutility,linuxfile, linuxmisc, linuxcovertracks, linuxiptables, linuxstartupservices, linuxtcpdump
+from includes import framework, linuxnetworkcommands, linuxsysteminfo
+from includes import linuxutility,linuxfile, linuxmisc, linuxcovertracks, linuxiptables, linuxstartupservices, linuxtcpdump
+from includes import winfiles 
 
 class_lnc = linuxnetworkcommands.class_linuxnetworktools()
 class_lsi = linuxsysteminfo.class_linuxsysteminfo()
@@ -14,9 +16,10 @@ class_lct = linuxcovertracks.class_linuxcovertracks()
 class_lit = linuxiptables.class_linuxiptables()
 class_lss = linuxstartupservices.class_linuxstartupservices()
 class_ltd = linuxtcpdump.class_linuxtcpdump()
+class_wf = winfiles.class_winfiles()
 
 #detect if it is windows
-clearscreen = 'clearscreen'
+clearscreen = 'clear'
 print os.name
 if os.name == 'nt':
 	clearscreen = 'cls'
@@ -46,6 +49,7 @@ menus = {'*Nix Systems': {
 				
 				'Windows' : {
 
+					'Windows Version' : class_wf,
 
 						}	
 				
