@@ -1,0 +1,133 @@
+#!/usr/bin/python
+
+#Main app for the adminconsole
+import os
+
+from includes import framework, linuxnetworkcommands, linuxsysteminfo, linuxutility,linuxfile, linuxmisc, linuxcovertracks, linuxiptables, linuxstartupservices, linuxtcpdump
+
+class_lnc = linuxnetworkcommands.class_linuxnetworktools()
+class_lsi = linuxsysteminfo.class_linuxsysteminfo()
+class_lu = linuxutility.class_linuxutility()
+class_lf = linuxfile.class_linuxfile()
+class_lm = linuxmisc.class_linuxmisc()
+class_lct = linuxcovertracks.class_linuxcovertracks()
+class_lit = linuxiptables.class_linuxiptables()
+class_lss = linuxstartupservices.class_linuxstartupservices()
+class_ltd = linuxtcpdump.class_linuxtcpdump()
+
+menuheader = '''
+
+  Sabrewolf Administrator console
+  Author: Jacques Coetzee
+  version 0.1
+'''
+
+menus = {'*Nix Systems': {
+ 						
+					'Network Commands' : class_lnc,
+					'System Info Commands' : class_lsi,
+					'Utilities Commands' : class_lu,
+					'Files Commands' : class_lf,
+					'Misc. Commands' : class_lm,
+					'Cover your tracks' : class_lct,
+					'IPTables' : class_lit,
+					'Startup Services' : class_lss,
+					'TCPDump' : class_ltd,
+
+
+						},
+				
+				'Windows' : {
+
+
+						}	
+				
+
+				}
+			
+
+mainchoice=''
+while mainchoice != 'x':
+	os.system('clear')
+	print menuheader
+
+	
+	mainmenulist = []	
+	print ' '*2 + 'Main Menu'
+	print str(' '*2) + str('='*9)
+	for mix,menuitem in enumerate(menus):
+		print ' '*2 + str(mix+1) + '. ' +  menuitem
+		mainmenulist.append( (str(mix+1),menuitem ) )
+	print ' '*2 + 'x. Exit'
+	print ""
+	mainchoice = raw_input('  Selection:')
+	
+	for items in mainmenulist:
+		if mainchoice == items[0]:
+			choice = ''
+			while choice != 'x':
+				os.system('clear')
+				print menuheader
+				menu = items[1]
+				selectionoptions = {}
+				print ' '*2 + menu.ljust(40) + 'Count'
+				print str(' '*2) + str('='*len(menu.ljust(45)))
+				for ix,menuitem in  enumerate(menus[menu]):
+					print str(' '*2) + str(ix+1) + '. ' + menuitem.ljust(38) + str(len(menus[menu][menuitem].toolslist)).rjust(4)
+					selectionoptions[str(ix+1)] = menus[menu][menuitem]
+		
+				print ' '*2 + 'x. Exit'
+				print ''
+				choice = raw_input('  Selection: ')
+
+				if choice in selectionoptions:
+					class_tfw = framework.Tool_framework(selectionoptions[choice].toolslist, selectionoptions[choice].class_header)
+					class_tfw.run_menu(menuheader)
+
+	if mainchoice != 'x':
+		continue
+	else:
+		break;
+
+
+	
+'''		
+choice = ''
+print menus
+while choice != 'x':
+	os.system('clear')
+	print menuheader
+	selectionoptions = {}
+	for menu in menus:
+		print ' '*2 + menu.ljust(40) + 'Count'
+		print str(' '*2) + str('='*len(menu.ljust(45)))
+		for ix,menuitem in  enumerate(menus[menu]):
+			print str(' '*2) + str(ix+1) + '. ' + menuitem.ljust(38) + str(len(menus[menu][menuitem].toolslist)).rjust(4)
+			selectionoptions[str(ix+1)] = menus[menu][menuitem]
+	
+		print ' '*2 + 'x. Exit'
+		print ''
+		choice = raw_input('  Selection: ')
+
+		if choice in selectionoptions:
+			class_tfw = framework.Tool_framework(selectionoptions[choice].toolslist, selectionoptions[choice].class_header)
+			class_tfw.run_menu(menuheader)
+	
+	'''	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
