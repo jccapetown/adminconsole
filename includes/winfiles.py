@@ -28,7 +28,9 @@ class class_winfiles():
 			
 		#Tools
 		self.toolslist.append(    ('Windows Versions', #description
-																'echo NT 3.1        Windows NT 3.1 (ALL) ',  #Tool
+																'echo \n NT 3.1        Windows NT 3.1 (ALL)
+																test
+																 ',  #Tool
 																[], #parameters
 																[], #user parameters
 																[], #Replacement parameters

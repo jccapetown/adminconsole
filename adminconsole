@@ -15,6 +15,13 @@ class_lit = linuxiptables.class_linuxiptables()
 class_lss = linuxstartupservices.class_linuxstartupservices()
 class_ltd = linuxtcpdump.class_linuxtcpdump()
 
+#detect if it is windows
+clearscreen = 'clearscreen'
+print os.name
+if os.name == 'nt':
+	clearscreen = 'cls'
+
+
 menuheader = '''
 
   Sabrewolf Administrator console
@@ -48,7 +55,7 @@ menus = {'*Nix Systems': {
 
 mainchoice=''
 while mainchoice != 'x':
-	os.system('clear')
+	os.system(clearscreen)
 	print menuheader
 
 	
@@ -66,7 +73,7 @@ while mainchoice != 'x':
 		if mainchoice == items[0]:
 			choice = ''
 			while choice != 'x':
-				os.system('clear')
+				os.system(clearscreen)
 				print menuheader
 				menu = items[1]
 				selectionoptions = {}
@@ -88,46 +95,5 @@ while mainchoice != 'x':
 		continue
 	else:
 		break;
-
-
-	
-'''		
-choice = ''
-print menus
-while choice != 'x':
-	os.system('clear')
-	print menuheader
-	selectionoptions = {}
-	for menu in menus:
-		print ' '*2 + menu.ljust(40) + 'Count'
-		print str(' '*2) + str('='*len(menu.ljust(45)))
-		for ix,menuitem in  enumerate(menus[menu]):
-			print str(' '*2) + str(ix+1) + '. ' + menuitem.ljust(38) + str(len(menus[menu][menuitem].toolslist)).rjust(4)
-			selectionoptions[str(ix+1)] = menus[menu][menuitem]
-	
-		print ' '*2 + 'x. Exit'
-		print ''
-		choice = raw_input('  Selection: ')
-
-		if choice in selectionoptions:
-			class_tfw = framework.Tool_framework(selectionoptions[choice].toolslist, selectionoptions[choice].class_header)
-			class_tfw.run_menu(menuheader)
-	
-	'''	
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
