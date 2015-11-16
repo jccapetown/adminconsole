@@ -80,10 +80,14 @@ class Tool_framework():
 
 			if execute:
 				print self.toolslist[ix][0]
-				if needRoot:
-					os.system(' sudo ' + command + ' ' + params)
-				else:
+
+				if os.name == 'nt':
 					os.system(' ' + command + ' ' + params)
+				elif os.name='posix':
+					if needRoot:
+						os.system(' sudo ' + command + ' ' + params)
+					else:
+						os.system(' ' + command + ' ' + params)
 			else:
 				print 'This command may cause damage to your computer and will not be executed.'
 				raw_input("You can run the following command: " + command + ' ' + params)
