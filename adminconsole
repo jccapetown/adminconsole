@@ -5,7 +5,7 @@ import os
 
 from includes import framework, linuxnetworkcommands, linuxsysteminfo
 from includes import linuxutility,linuxfile, linuxmisc, linuxcovertracks, linuxiptables, linuxstartupservices, linuxtcpdump
-from includes import winfiles 
+from includes import winfiles,winsysteminfo
 
 class_lnc = linuxnetworkcommands.class_linuxnetworktools()
 class_lsi = linuxsysteminfo.class_linuxsysteminfo()
@@ -17,6 +17,7 @@ class_lit = linuxiptables.class_linuxiptables()
 class_lss = linuxstartupservices.class_linuxstartupservices()
 class_ltd = linuxtcpdump.class_linuxtcpdump()
 class_wf = winfiles.class_winfiles()
+class_wsi = winsysteminfo.class_winsysteminfo()
 
 #detect if it is windows
 clearscreen = 'clear'
@@ -49,7 +50,8 @@ menus = {'*Nix Systems': {
 				
 				'Windows' : {
 
-					'Windows Version' : class_wf,
+					'Windows Versions' : class_wf,
+					'Windows System Info' : class_wsi,
 
 						}	
 				

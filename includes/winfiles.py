@@ -28,14 +28,26 @@ class class_winfiles():
 			
 		#Tools
 		self.toolslist.append(    ('Windows Versions', #description
-																'echo "\n NT 3.1        Windows NT 3.1 (ALL) test \
-																\n NT 3.1        Windows NT 3.1 (ALL) test \
-																\n NT 3.1        Windows NT 3.1 (ALL) test \
-																\n NT 3.1        Windows NT 3.1 (ALL) test \
+																'echo " \
+\n Windows 10                             10.0* \
+\n Windows Server 2016 Technical Preview  10.0* \
+\n Windows 8.1                            6.3* \
+\n Windows Server 2012 R2                 6.3* \
+\n Windows 8                              6.2 \
+\n Windows Server 2012                    6.2 \
+\n Windows 7                              6.1 \
+\n Windows Server 2008 R2                 6.1 \
+\n Windows Server 2008                    6.0 \
+\n Windows Vista                          6.0 \
+\n Windows Server 2003 R2                 5.2 \
+\n Windows Server 2003                    5.2 \
+\n Windows XP 64-Bit Edition              5.2 \
+\n Windows XP                             5.1 \
+\n Windows 2000                           5.0 \
 																"',  #Tool
 																[], #parameters
 																[], #user parameters
 																[], #Replacement parameters
 																True, #allow continue
 																True ,#execute 
-																True) ) #Needs root
+																False) ) #Needs root

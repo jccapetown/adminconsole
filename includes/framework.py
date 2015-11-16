@@ -100,9 +100,17 @@ class Tool_framework():
 
 
 	def run_menu(self, mainheader):
+		#detect if it is windows
+		clearscreen = 'clear'
+		print os.name
+		if os.name == 'nt':
+			clearscreen = 'cls'
+	
+
+
 		selection = ''
 		while selection != 'x':
-			os.system('clear')
+			os.system(clearscreen)
 			print self.class_header
 			print mainheader
 			print ' '*2 + self.class_header
