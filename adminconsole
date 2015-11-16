@@ -31,7 +31,11 @@ menuheader = '''
   Sabrewolf Administrator console
   Author: Jacques Coetzee
   version 0.1
-'''
+
+  You are sunning on: %s
+''' %  os.name
+
+
 
 menus = {'*Nix Systems': {
  						

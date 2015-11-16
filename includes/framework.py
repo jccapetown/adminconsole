@@ -83,7 +83,7 @@ class Tool_framework():
 
 				if os.name == 'nt':
 					os.system(' ' + command + ' ' + params)
-				elif os.name='posix':
+				elif os.name=='posix':
 					if needRoot:
 						os.system(' sudo ' + command + ' ' + params)
 					else:
